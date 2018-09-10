@@ -20,7 +20,7 @@ namespace LuxSciWebApi
         static string USER_TOKEN = "xxxxxxxxxx";
         static string USER_SECRET = "xxxxxxxxxxxxxx";
         static string EMAIL_ID = "admin@xxxxxxx.luxsci.net";
-        private static string EMAIL_PASSWORD = "vjnxy32!x";
+        private static string EMAIL_PASSWORD = "xxx!x";
 
         private static int SUCCESS_RESPONSE = 1;
         private static string ACCOUNT_CODE = "18184";
