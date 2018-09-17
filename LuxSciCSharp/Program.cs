@@ -86,7 +86,7 @@ namespace LuxSciWebApi
                 var path = USER_PATH + EMAIL_ID + "/profile";
                 var qs = ""; // query string
                 var requestBodyHash = "";// hash of the body
-                var to_sign =  // sign the create
+                var to_sign =  // sign the request
                     CreateToken(
                         (userAuth + "\n" + method.ToUpper() + "\n" + path + "\n" + qs + "\n" + requestBodyHash + "\n"),
                         USER_SECRET);
@@ -98,7 +98,7 @@ namespace LuxSciWebApi
 
 
 
-                // send mail
+                // send mail api 
                 
                 EmailRequest emailReq = new EmailRequest();
 
@@ -195,7 +195,7 @@ namespace LuxSciWebApi
 
 
 
-                //get profile request
+                //get users request
                 resp = await GetDataAsync(GetNewHttpClient(accountAuth, path, to_sign), path, null);
                 ProcessOutput(resp, "Account "); // display the output of the profile request
 
@@ -269,7 +269,7 @@ namespace LuxSciWebApi
         // method to create http client, since we have to sign the request every time with the cookie and the Request Method could vary, lets use new client.
         private static HttpClient GetNewHttpClient(string Auth, string path, string sign)
         {
-            //HttpClientHandler is a global variable                
+            //HttpClientHandler is a  variable                
             var HttpClientHandler = new HttpClientHandler
             {
                 AllowAutoRedirect = true,
@@ -453,7 +453,7 @@ namespace LuxSciWebApi
 
             //read the file contents
             FileStream fileStream = File.OpenRead(ATTACHMENT_PATH);
-           // var streamContent = new StreamContent(fileStream);
+          
 
             string filecontents;
             // set the email attachment name and details in header
@@ -572,7 +572,7 @@ namespace LuxSciWebApi
     }
 
 
-    // requeest for Authenticating the user
+    // request for Authenticating the user
     [JsonObject]
     public abstract class AuthRequest
     {
